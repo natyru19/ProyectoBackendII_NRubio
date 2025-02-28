@@ -27,13 +27,13 @@ p {
     font-size: 15px;
 }
 
-.divForm {
+.divFormRealTimeProds {
     align-content: center;
     justify-items: center;
     margin-bottom: 20px;
 }
 
-form {
+formRealTimeProds {
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -87,4 +87,17 @@ form {
     margin-bottom: 20px;
     justify-content: center;
     align-items: center;
+}
+
+.divRegister {
+    display: flex;
+    justify-content: center;
+}
+
+.formRegister {
+    flex-direction: column;
+}
+
+.inputRegister {
+    margin-left: 50px;
 }

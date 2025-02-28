@@ -23,7 +23,7 @@ class CartManager {
 
     async findCartById(id) {
         try {            
-            const cart = await CartModel.findById(id)
+            const cart = await CartModel.findById(id);
             return cart;
         } catch (error) {
             throw error;
