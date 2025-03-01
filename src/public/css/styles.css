@@ -101,3 +101,12 @@ formRealTimeProds {
 .inputRegister {
     margin-left: 50px;
 }
+
+.divLogin {
+    display: flex;
+    justify-content: center;
+}
+
+.formLogin {
+    flex-direction: column;
+}

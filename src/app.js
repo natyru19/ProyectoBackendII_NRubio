@@ -27,9 +27,9 @@ app.set("views", "./src/views");
 
 // Rutas
 
+app.use("/", viewsRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
-app.use("/", viewsRouter);
 app.use("/api/sessions", sessionsRouter);
 
 

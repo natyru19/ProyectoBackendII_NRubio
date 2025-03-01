@@ -22,5 +22,33 @@ sessionsRouter.post("/register", async (req, res) => {
     }
 });
 
+sessionsRouter.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await userManager.getByEmail(email);
+        
+        if(user){
+            if(user.password === password){
+                req.user = {
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    email: user.email,
+                    age: user.age
+                }
+
+                return res.status(200).json({status: "success", message: `Usuario loggeado correctamente`, data: user});
+            } else {
+                return res.status(400).json({status: "error", message: `La contraseña no es válida`, data: null});
+            }            
+        } else {
+            return res.status(404).json({status: "error", message: `El usuario no se encontró`, data: null});
+        }
+
+    } catch (error) {
+        return res.status(500).json({status: "error", message: error.message});
+    }
+});
+
 
 export default sessionsRouter;
