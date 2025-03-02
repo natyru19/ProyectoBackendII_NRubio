@@ -1,3 +1,10 @@
 <h2>Perfil</h2>
 
-<p>Bienvenido {{user.firstName}} {{user.lastName}} !!! </p>
+<p>Bienvenido {{{user.firstName}}} {{{user.lastName}}}!!! </p>
+
+<div>
+    <form action="/api/sessions/logout" method="POST">
+        <button type="submit" id="btnLogout" class="btn">Cerrar sesión</button>
+    </form>
+</div>
+

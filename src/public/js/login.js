@@ -18,11 +18,14 @@ const loginUser = async() => {
         body : JSON.stringify(user)
     }
 
-    const response = await fetch(`http://localhost:8080/api/sessions/login`, opts)
-    const data = await response.json();
+    const response = await fetch(`/api/sessions/login`, opts)
+    const dataFromResponse = await response.json();
 
     if(response.status == 200){
-        window.location.href = "/profile";
+        //window.location.href = "www.google.com";
+        //Aca sabes que se logueó en tu api
+        //necesito ahora desplegar la vista de profile DE ESE USUARIO LOGUEADO
+        window.location.href = "/api/sessions/current";
     }else{
         Swal.fire("No se pudo loggear");
     }

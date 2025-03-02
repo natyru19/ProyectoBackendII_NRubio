@@ -71,8 +71,15 @@ viewsRouter.get("/login", (req, res) => {
 });
 
 viewsRouter.get("/profile", (req, res) => {
-    return res.render("profile");
+    //const {user} = req;
+    const user = req.session.user;
+    return res.render("profile", {user});
 });
+
+// viewsRouter.get("/admin", (req, res) => {
+//     const user = req.user.role;
+//     return res.render("admin", {user});
+// });
 
 
 export default viewsRouter;

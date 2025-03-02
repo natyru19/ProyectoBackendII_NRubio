@@ -32,12 +32,13 @@ const registerUser = async() => {
         body : JSON.stringify(user)
     }
 
-    const response = await fetch(`http://localhost:8080/api/sessions/register`, opts)
+    const response = await fetch(`/api/sessions/register`, opts)
     const dataFromResponse = await response.json();
     
     if(response.status == 201){
-        Swal.fire(`Se registró el usuario ${dataFromResponse.data.firstName}`);
-        clearFields();
+        // Swal.fire(`Se registró el usuario ${dataFromResponse.data.firstName}`);
+        // clearFields();
+        window.location.href = "/login";
     }else{
         Swal.fire("No se pudo registrar el usuario");
         

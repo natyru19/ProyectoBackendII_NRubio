@@ -1,19 +1,20 @@
 import UsersModel from '../models/user.model.js';
+import { createHash } from '../utils/util.js';
 
 class UsersManager{
 
     async getByEmail(email){
         try {
-            const user = await UsersModel.findOne({email: email});
+            const user = await UsersModel.findOne({email: email}).lean();
             return user;
         } catch (error) {
             throw error;
         }
     }
 
-    async createUser(firstName, lastName, email, age, password){
+    async createUser(firstName, lastName, email, age, password, role){
         try {
-            const newUser = await UsersModel.create({firstName, lastName, email, age, password});
+            const newUser = await UsersModel.create({firstName, lastName, email, age, password: createHash(password), role});
             return newUser;
         } catch (error) {
             throw error;

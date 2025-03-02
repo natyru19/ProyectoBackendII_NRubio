@@ -25,11 +25,11 @@ const userSchema = new mongoose.Schema({
     // cartId: {
 
     // },
-    // role: {
-    //     type: String,
-    //     required: true,
-    //     default: user
-    // }
+    role: {
+        type: String,
+        enum: ["admin", "user"],
+        default: "user"
+    }
 });
 
 const UserModel = mongoose.model("users", userSchema);

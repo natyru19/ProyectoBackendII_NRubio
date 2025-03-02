@@ -7,15 +7,20 @@ import { engine } from 'express-handlebars';
 import { Server } from 'socket.io';
 import ProductManager from './managers/product.manager.js';
 import "./database.js"
+import initializePassport from "./config/passport.config.js"
+import passport from 'passport';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 const PUERTO = 8080;
 const productManager = new ProductManager();
 
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser());
+app.use(passport.initialize());
+initializePassport();
 
 // Middleware incorporado (archivos estáticos)
 app.use(express.static("./src/public"));
