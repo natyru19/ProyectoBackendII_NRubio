@@ -34,6 +34,8 @@ const registerUser = async() => {
 
     const response = await fetch(`/api/sessions/register`, opts)
     const dataFromResponse = await response.json();
+    console.log(dataFromResponse);
+    
     
     if(response.status == 201){
         // Swal.fire(`Se registró el usuario ${dataFromResponse.data.firstName}`);

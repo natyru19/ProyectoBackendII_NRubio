@@ -1,14 +1,17 @@
 import { Router } from "express";
 import UsersManager from "../managers/user.manager.js";
+import CartManager from '../managers/cart.manager.js';
 import jwt from "jsonwebtoken";
 import { isValidPassword } from "../utils/util.js";
 import passport from "passport";
 
 const sessionsRouter = Router();
 const userManager = new UsersManager();
+const cartManager = new CartManager();
 
 sessionsRouter.post("/register", async (req, res) => {
     const { firstName, lastName, email, age, password, role } = req.body;
+    
 
     try {
         const existsUser = await userManager.getByEmail(email);
@@ -16,8 +19,8 @@ sessionsRouter.post("/register", async (req, res) => {
         if(existsUser){
             return res.status(400).json({status: "error", message: `El email ya se encuentra registrado`, data: null});
         }
-
-        const newUser = await userManager.createUser(firstName, lastName, email, age, password, role);
+        const cart = await cartManager.createCart();
+        const newUser = await userManager.createUser(firstName, lastName, email, age, password, cart, role);
         return res.status(201).json({status: "success", message: "Se creó el usuario correctamente", data: newUser});
 
     } catch (error) {

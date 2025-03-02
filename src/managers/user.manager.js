@@ -1,6 +1,7 @@
 import UsersModel from '../models/user.model.js';
 import { createHash } from '../utils/util.js';
 
+
 class UsersManager{
 
     async getByEmail(email){
@@ -12,9 +13,10 @@ class UsersManager{
         }
     }
 
-    async createUser(firstName, lastName, email, age, password, role){
+    async createUser(firstName, lastName, email, age, password, cart, role){        
+
         try {
-            const newUser = await UsersModel.create({firstName, lastName, email, age, password: createHash(password), role});
+            const newUser = await UsersModel.create({firstName, lastName, email, age, password: createHash(password), cart: cart._id, role});
             return newUser;
         } catch (error) {
             throw error;
