@@ -64,7 +64,6 @@ sessionsRouter.post("/login", async (req, res) => {
 sessionsRouter.post("/logout", async (req, res) => {
     res.clearCookie("coderCookieToken", {httpOnly: true});
     res.redirect("/login");
-    //res.status(200).json({status: "success", message: `Se cerró la sesión correctamente`, data: null});
 });
 
 sessionsRouter.get("/current", passport.authenticate("current", {session: false}), async(req, res) => {

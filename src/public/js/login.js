@@ -22,9 +22,6 @@ const loginUser = async() => {
     const dataFromResponse = await response.json();
 
     if(response.status == 200){
-        //window.location.href = "www.google.com";
-        //Aca sabes que se logueó en tu api
-        //necesito ahora desplegar la vista de profile DE ESE USUARIO LOGUEADO
         window.location.href = "/api/sessions/current";
     }else{
         Swal.fire("No se pudo loggear");

@@ -91,22 +91,71 @@ formRealTimeProds {
 
 .divRegister {
     display: flex;
+    margin: auto;
     justify-content: center;
+    background-color: #89A8B2;
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 500px;
 }
 
 .formRegister {
     flex-direction: column;
 }
 
-.inputRegister {
-    margin-left: 50px;
+#btnRegister {
+    display: flex;
+    justify-self: center;
 }
 
 .divLogin {
     display: flex;
-    justify-content: center;
+    margin: auto;
+    justify-content: center;       
+    background-color: #89A8B2;
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 400px;
 }
 
 .formLogin {
     flex-direction: column;
+    padding: 20px;
+}
+
+#btnLogin {
+    display: flex;
+    justify-self: center;
+}
+
+.divProfile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.divProfile h4 {
+    text-align: center;
+}
+
+.divProfile p {
+    text-align: center;
+}
+
+.divInfoProfile {
+    border: 5px solid #89A8B2;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#btnLogout {
+    margin-top: 30px;
+}
+
+.divAdmin {
+    display: flex;
+    justify-content: center;
 }
