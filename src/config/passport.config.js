@@ -10,7 +10,7 @@ const initializePassport = () => {
         secretOrKey: "coderhouse"
     }, async (jwt_payload, done) => {
         try {
-            return done(null, jwt_payload);
+            return done(null,jwt_payload);
         } catch (error) {
             return done(error);
         }

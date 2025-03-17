@@ -6,7 +6,7 @@ import sessionsRouter from './routes/sessions.router.js';
 import { engine } from 'express-handlebars';
 import { Server } from 'socket.io';
 import ProductManager from './managers/product.manager.js';
-import "./database.js"
+import DataBase from './database.js';
 import initializePassport from "./config/passport.config.js"
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
@@ -14,6 +14,7 @@ import cookieParser from 'cookie-parser';
 const app = express();
 const PUERTO = 8080;
 const productManager = new ProductManager();
+const instanceDB = DataBase.getInstance();
 
 // Middleware
 app.use(express.json());

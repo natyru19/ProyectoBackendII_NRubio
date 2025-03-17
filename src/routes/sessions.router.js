@@ -35,7 +35,6 @@ sessionsRouter.post("/login", async (req, res) => {
         const user = await userManager.getByEmail(email);
         
         if(user){
-            //if(user.password === password)
             if(isValidPassword(password, user)){
                 req.user = {
                     firstName: user.firstName,

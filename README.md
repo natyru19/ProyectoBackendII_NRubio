@@ -2,6 +2,9 @@
 
 ### Continuación del proyecto Backend I
 
+> Última entrega
+
+- Se agrega patrón Singleton.<br>
 
 > Primera entrega - Comisión 70415
 
