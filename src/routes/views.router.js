@@ -2,13 +2,15 @@ import { Router } from 'express';
 import ProductManager from '../dao/managers/product.manager.js';
 import ProductsModel from '../dao/models/product.model.js';
 import CartManager from '../dao/managers/cart.manager.js';
+import { onlyAdmin, onlyUser } from "../middleware/auth.js";
+import passport from 'passport';
 
 const viewsRouter = Router();
 const productManager = new ProductManager();
 const cartManager = new CartManager();
 
 
-viewsRouter.get("/products", async (req, res) => {
+viewsRouter.get("/products", passport.authenticate("current", {session: false}), onlyUser, async (req, res) => {
     const { limit, page } = req.query;
 
     try {
@@ -38,7 +40,7 @@ viewsRouter.get("/products", async (req, res) => {
     }
 });
 
-viewsRouter.get("/realtimeproducts", (req, res) => {
+viewsRouter.get("/realtimeproducts", passport.authenticate("current", {session: false}), onlyAdmin, (req, res) => {
     return res.render("realTimeProducts");
 });
 
