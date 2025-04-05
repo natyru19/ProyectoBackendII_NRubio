@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import ProductManager from '../managers/product.manager.js';
-import ProductsModel from '../models/product.model.js';
-import CartManager from '../managers/cart.manager.js';
+import ProductManager from '../dao/managers/product.manager.js';
+import ProductsModel from '../dao/models/product.model.js';
+import CartManager from '../dao/managers/cart.manager.js';
 
 const viewsRouter = Router();
 const productManager = new ProductManager();

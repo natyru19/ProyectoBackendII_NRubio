@@ -5,7 +5,7 @@ import viewsRouter from './routes/views.router.js';
 import sessionsRouter from './routes/sessions.router.js';
 import { engine } from 'express-handlebars';
 import { Server } from 'socket.io';
-import ProductManager from './managers/product.manager.js';
+import ProductManager from './dao/managers/product.manager.js';
 import DataBase from './database.js';
 import initializePassport from "./config/passport.config.js"
 import passport from 'passport';
