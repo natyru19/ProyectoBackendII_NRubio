@@ -4,6 +4,7 @@
 
 > Última entrega
 
+- Se realiza separación por capas con product.<br>
 - Se agrega archivo .env.<br>
 - Se utiliza un middleware de autorización para delimitar el acceso, los usuarios tienen acceso a products y los administradores tienen acceso a realtimeproducts.<br>
 - Se aplica el patrón DTO para no enviar información sensible.<br>
