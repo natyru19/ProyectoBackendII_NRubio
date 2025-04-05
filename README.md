@@ -4,6 +4,7 @@
 
 > Última entrega
 
+- Se aplica el patrón DTO para no enviar información sensible.<br>
 - Se realiza separación por capas con user.<br>
 - Se agrega patrón Singleton.<br>
 

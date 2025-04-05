@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 //import CartManager from "../dao/managers/cart.manager.js";
 import UserManager from "../dao/managers/user.manager.js";
 import { isValidPassword } from "../utils/util.js";
+import UserDTO from "../dto/user.dto.js";
 
 //const cartManager = new CartManager();
 const userManager = new UserManager();
@@ -47,7 +48,8 @@ class UserController {
         
         if(req.user){        
             const userBD = await userManager.getByEmail(req.user.user);
-            return res.render("profile", {user:userBD});
+            const userDTO = new UserDTO(userBD);
+            return res.render("profile", {user: userDTO});
         }
         
         return res.status(400).json({status: "error", message: `No autorizado`, data: null});
