@@ -11,16 +11,16 @@ class UsersManager {
     }
   }
 
-  async createUser(firstName, lastName, email, age, password, cart, role) {
+  async createUser(userData) {
     try {
       const newUser = await UsersModel.create({
-        firstName,
-        lastName,
-        email,
-        age,
-        password: createHash(password),
-        cart: cart._id,
-        role,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+        age: userData.age,
+        password: createHash(userData.password),
+        cart: userData.cart,
+        role: userData.role,
       });
       return newUser;
     } catch (error) {

@@ -1,12 +1,11 @@
 import userService from "../services/user.service.js";
+import cartService from "../services/cart.service.js";
 import jwt from "jsonwebtoken";
-//import CartManager from "../dao/managers/cart.manager.js";
 import UserManager from "../dao/managers/user.manager.js";
 import { isValidPassword } from "../utils/util.js";
 import UserDTO from "../dto/user.dto.js";
 import config from "../config/config.js";
 
-//const cartManager = new CartManager();
 const userManager = new UserManager();
 
 class UserController {
@@ -17,7 +16,11 @@ class UserController {
         try {
             
             const newUser = await userService.registerUser({firstName, lastName, email, age, password, role});
-            //const cart = await cartManager.createCart();
+            const newCart = await cartService.createCart();
+
+            newUser.cart = newCart._id;
+            await newUser.save();
+
             return res.status(201).json({status: "success", message: "Se creó el usuario correctamente", data: newUser});
     
         } catch (error) {
