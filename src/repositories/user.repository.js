@@ -4,8 +4,7 @@ class UserRepository {
 
     async getByEmail(email){
         try {
-            const user = await UserDao.findOne({email: email});
-            return user;
+            return await UserDao.findOne({email});
         } catch (error) {
             throw error;
         }
@@ -14,8 +13,7 @@ class UserRepository {
     async createUser(userData){        
 
         try {
-            const newUser = await UserDao.save(userData);
-            return newUser;
+            return await UserDao.save(userData);
         } catch (error) {
             throw error;
         }

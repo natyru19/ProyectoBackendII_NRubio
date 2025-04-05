@@ -4,6 +4,7 @@
 
 > Última entrega
 
+- Se realiza separación por capas con user.<br>
 - Se agrega patrón Singleton.<br>
 
 > Primera entrega - Comisión 70415

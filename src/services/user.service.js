@@ -1,5 +1,6 @@
-import { createHash, isValidPassword } from "../utils/util.js";
+
 import userRepository from "../repositories/user.repository.js";
+import { createHash, isValidPassword } from "../utils/util.js";
 
 class UserService {
     async registerUser(userData) {
@@ -7,7 +8,7 @@ class UserService {
         if(existsUser){
             throw new Error("El usuario ya existe");
         }
-
+        
         userData.password = createHash(userData.password);
         return await userRepository.createUser(userData);
     }
