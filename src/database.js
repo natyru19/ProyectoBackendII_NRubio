@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
+import config from "./config/config.js";
 
 class DataBase {
     static #instance;
 
     constructor() {
-        mongoose.connect("mongodb+srv://nataliarubio:coderhouse@cluster0.ztm42.mongodb.net/ProyectoBackendII?retryWrites=true&w=majority&appName=Cluster0")
+        mongoose.connect(config.mongoUrl)
         .then(() => console.log("Se conectó a la BD exitosamente"))
         .catch((error) => console.log("Tenemos un error: " + error))
     }

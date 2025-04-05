@@ -10,9 +10,10 @@ import DataBase from './database.js';
 import initializePassport from "./config/passport.config.js"
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
+import config from "./config/config.js";
 
 const app = express();
-const PUERTO = 8080;
+const PORT = config.port;
 const productManager = new ProductManager();
 const instanceDB = DataBase.getInstance();
 
@@ -41,8 +42,8 @@ app.use("/api/sessions", sessionsRouter);
 
 // La app escuchando en el puerto 8080 (el que se le indica)
 
-const httpServer = app.listen(PUERTO, () => {
-    console.log(`Servidor escuchando en el puerto ${PUERTO}`);
+const httpServer = app.listen(PORT, () => {
+    console.log(`Servidor escuchando en el puerto ${PORT}`);
 })
 
 // Websockets

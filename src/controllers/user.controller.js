@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import UserManager from "../dao/managers/user.manager.js";
 import { isValidPassword } from "../utils/util.js";
 import UserDTO from "../dto/user.dto.js";
+import config from "../config/config.js";
 
 //const cartManager = new CartManager();
 const userManager = new UserManager();
@@ -30,8 +31,8 @@ class UserController {
         try {
             const user = await userService.loginUser(email, password);
 
-            const token = jwt.sign({user: user.email, role: user.role}, "coderhouse", {expiresIn: 1000 * 60 * 60});
-            res.cookie("coderCookieToken", token, { httpOnly: true, maxAge: 1000 * 60 * 60 });
+            const token = jwt.sign({user: user.email, role: user.role}, config.jwtSecret, {expiresIn: 1000 * 60 * 60});
+            res.cookie(config.cookieSecret, token, { httpOnly: true, maxAge: 1000 * 60 * 60 });
             return res.status(200).json({status: "success", message: `Usuario loggeado correctamente`, data: user});
 
         } catch (error) {
@@ -40,7 +41,7 @@ class UserController {
     };
     
     async logout (req, res) {
-        res.clearCookie("coderCookieToken", {httpOnly: true});
+        res.clearCookie(config.cookieSecret, {httpOnly: true});
         res.redirect("/login");
     };
     
