@@ -4,6 +4,9 @@
 
 > Última entrega
 
+Para probar: [variables de entorno](https://drive.google.com/drive/folders/1qbyFEGuxyUYIFf79tzSrvzeB1R_A4ycv?usp=drive_link)<br>
+
+- Se realiza separación por capas con cart.<br>
 - Se realiza separación por capas con product.<br>
 - Se agrega archivo .env.<br>
 - Se utiliza un middleware de autorización para delimitar el acceso, los usuarios tienen acceso a products y los administradores tienen acceso a realtimeproducts.<br>

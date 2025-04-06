@@ -87,6 +87,32 @@ class CartController {
             return res.status(500).json({ status: "error", message: error.message });
         }
     }
+
+    async processPurchase(req, res) {
+        const cartId = req.params.cid;
+        const userEmail = req.user?.email;
+
+    if (!userEmail) {
+        return res.status(400).json({ status: "error", message: "No autorizado" });
+    }
+
+    try {
+
+        const { unavailableProducts, totalAmount } = await CartService.processPurchase(cartId, userEmail);
+
+        if (unavailableProducts.length > 0) {
+            return res.status(400).json({status: "error", message: "Algunos productos no pudieron ser procesados por falta de stock", data: unavailableProducts});
+        }
+
+        req.session.ticketData = { ticket, remainingProducts };
+        return res.redirect("/ticket");
+
+    } catch (error) {
+        return res.status(500).json({ status: "error", message: error.message });
+    }
+    };
+
 }
+
 
 export default new CartController();

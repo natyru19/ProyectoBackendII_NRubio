@@ -11,6 +11,7 @@ import initializePassport from "./config/passport.config.js"
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import config from "./config/config.js";
+import session from "express-session";
 
 const app = express();
 const PORT = config.port;
@@ -23,6 +24,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(passport.initialize());
 initializePassport();
+app.use(session({
+    secret: config.sessionSecret,
+    resave: false,
+    saveUninitialized: true
+  }));
 
 // Middleware incorporado (archivos estáticos)
 app.use(express.static("./src/public"));

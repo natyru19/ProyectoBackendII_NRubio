@@ -72,10 +72,4 @@ viewsRouter.get("/login", (req, res) => {
     return res.render("login");
 });
 
-viewsRouter.get("/profile", (req, res) => {
-    const user = req.session.user;
-    return res.render("profile", {user});
-});
-
-
 export default viewsRouter;
