@@ -3,6 +3,7 @@ import productsRouter from './routes/products.router.js';
 import cartsRouter from './routes/carts.router.js';
 import viewsRouter from './routes/views.router.js';
 import sessionsRouter from './routes/sessions.router.js';
+import mocksRouter from './routes/mocks.router.js';
 import { engine } from 'express-handlebars';
 import { Server } from 'socket.io';
 import ProductManager from './dao/managers/product.manager.js';
@@ -44,6 +45,7 @@ app.use("/", viewsRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 app.use("/api/sessions", sessionsRouter);
+app.use("/api/mocks", mocksRouter);
 
 
 // La app escuchando en el puerto 8080 (el que se le indica)

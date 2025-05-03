@@ -1,29 +1,14 @@
-## PROGRAMACIÓN BACKEND II
+## PROGRAMACIÓN BACKEND III
 
-### Continuación del proyecto Backend I
+### Continuación del proyecto Backend II
 
-> Última entrega
+> Primera entrega - Comisión 70420
 
-Para probar: [variables de entorno](https://drive.google.com/drive/folders/1qbyFEGuxyUYIFf79tzSrvzeB1R_A4ycv?usp=drive_link)<br>
+- El rol varía entre user o admin aleatoriamente.
+- La edad es un número random entre el 18 y 80.
+- La contraseña es la misma para todos los usuarios y está encriptada.
+- La información que se devuelve es con el mismo formato que se guarda en Mongo.
+- Se genera la cantidad de usuarios solicitada por parámetro.<br>
+- Creo el router mocks.router.
 
-- Se realiza separación por capas con cart.<br>
-- Se realiza separación por capas con product.<br>
-- Se agrega archivo .env.<br>
-- Se utiliza un middleware de autorización para delimitar el acceso, los usuarios tienen acceso a products y los administradores tienen acceso a realtimeproducts.<br>
-- Se aplica el patrón DTO para no enviar información sensible.<br>
-- Se realiza separación por capas con user.<br>
-- Se agrega patrón Singleton.<br>
-
-> Primera entrega - Comisión 70415
-
-Se crea el usuario Juan Perez con rol de administrador. Email: juan@perez.com - Contraseña: juan<br><br>
-Adjunto las colecciones de Postman para probar.<br>
-[postman_collection](https://drive.google.com/drive/folders/1qbyFEGuxyUYIFf79tzSrvzeB1R_A4ycv?usp=drive_link)<br>
-
-- Cada vez que un usuario se registre, se crea un carrito que estará asociado con un Id a ese usuario registrado.<br>
-- Cierre de sesión funcionando.<br>
-- Se identifican los diferentes roles de los usuarios: user o admin.<br>
-- Se realiza hasheo de la contraseña usando bcrypt, se utiliza estrategia de autenticación passport, jwt y cookies.<br>
-- Inicio de sesión funcionando.<br>
-- Registro de usuarios funcionando.
-
+[variables de entorno](https://drive.google.com/drive/folders/1qbyFEGuxyUYIFf79tzSrvzeB1R_A4ycv?usp=drive_link)<br>
